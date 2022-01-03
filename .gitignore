@@ -4,4 +4,4 @@ env
 *.jpg
 *.jpeg
 *.png
-*.gif
+animations/*.gif
