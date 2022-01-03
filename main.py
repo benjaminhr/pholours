@@ -6,12 +6,15 @@ import numpy as np
 from sklearn.cluster import KMeans
 from datetime import datetime
 
-PICS_PATH = str(pathlib.Path("./pics").resolve())
+PICS_PATH = str(pathlib.Path("./input-images").resolve())
 TEST_PICS_PATH = str(pathlib.Path("./test_pics").resolve())
 
-test_photo_files = glob.glob(TEST_PICS_PATH + "/*")
+# get all input files and sort by modification time
 photo_files = sorted(pathlib.Path(PICS_PATH).iterdir(), key=os.path.getmtime)
+# to string
 photo_files = [str(path) for path in photo_files]
+
+OUTPUT_FOLDER = str(pathlib.Path("./output-colours").resolve())
 
 
 def visualize_colors(cluster, centroids):
@@ -57,10 +60,4 @@ for path in photo_files:
         last_modified_timestamp).strftime('%m-%d--%H:%M:%S')
 
     colour_img = show_colours(path)
-    cv2.imwrite(f"./output-2/{timestamp}.jpg", colour_img)
-
-
-# joined_colours = np.concatenate(tuple(colours), axis=0)
-# cv2.imshow('visualize', joined_colours)
-# cv2.waitKey()
-# cv2.destroyAllWindows()
+    cv2.imwrite(f"./{OUTPUT_FOLDER}/{timestamp}.jpg", colour_img)
