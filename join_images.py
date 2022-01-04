@@ -20,6 +20,9 @@ top, bottom, left, right = [200, 200, 100, 100]
 images.sort(key=lambda img: np.average(
     norm(img, axis=2)) / np.sqrt(3))
 
+remove = 300
+images = images[remove:]
+
 # create one large image of light strips
 full_image = cv2.vconcat(images)
 # full_image = cv2.resize(full_image, (4000,  1000))

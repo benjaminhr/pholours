@@ -39,10 +39,8 @@ for photo_path in photo_files:
 images.sort(key=lambda img: np.average(
     norm(img["image"], axis=2)) / np.sqrt(3))
 
-print(len(images))
 remove = 300
 images = images[remove:]
-print(len(images))
 
 for imageObject in images:
     image = imageObject["image"]
