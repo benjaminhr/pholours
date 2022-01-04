@@ -34,8 +34,13 @@ for photo_path in photo_files:
     filename = os.path.basename(photo_path)
     month_taken = month_mappings[filename[:2]]
     font = cv2.FONT_HERSHEY_TRIPLEX
+    textsize = cv2.getTextSize(month_taken, font, 1, 2)[0]
+    textX = ((img.shape[1] - textsize[0]) // 2) - 60
 
-    cv2.putText(img, month_taken, (400, 390), font,
+    cv2.putText(img, month_taken, (textX, 390), font,
                 2, (0, 0, 0), 2, cv2.LINE_AA)
+
+    # cv2.putText(img, month_taken, (400, 390), font,
+    #             2, (0, 0, 0), 2, cv2.LINE_AA)
 
     cv2.imwrite(f"{OUTPUT_FOLDER}/{filename}", img)
