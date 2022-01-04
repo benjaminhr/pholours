@@ -4,7 +4,7 @@ import glob
 import os
 
 OUTPUT_FOLDER = str(pathlib.Path("./output-border").resolve())
-PHOTO_FOLDER = str(pathlib.Path("./output-2").resolve())
+PHOTO_FOLDER = str(pathlib.Path("./output-colours").resolve())
 photo_files = glob.glob(PHOTO_FOLDER + "/*")
 
 color = [255, 255, 255]  # white
