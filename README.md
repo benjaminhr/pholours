@@ -1,3 +1,5 @@
+![gif](movie.gif)
+
 # pholours
 
 your year in review with colours.
@@ -8,6 +10,3 @@ your year in review with colours.
 - read images, get rgb values, k-means clustering to find 7 most prominent colours
 - border and text added
 - gif created
-
-example:
-![gif](movie.gif)
